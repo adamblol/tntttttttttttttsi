@@ -15,17 +15,20 @@ public class EndGame extends BukkitRunnable {
             player.teleport(Bukkit.getWorld(Main.plugin.getConfig().getString("main-world-name")).getSpawnLocation());
             player.setGameMode(GameMode.CREATIVE);
             player.setScoreboard(Bukkit.getScoreboardManager().getNewScoreboard());
+            player.getInventory().clear();
         });
         Game.playersDead.forEach(player -> {
             player.teleport(Bukkit.getWorld(Main.plugin.getConfig().getString("main-world-name")).getSpawnLocation());
             player.setGameMode(GameMode.CREATIVE);
             player.setScoreboard(Bukkit.getScoreboardManager().getNewScoreboard());
+            player.getInventory().clear();
         });
 
         // reset values to default
         Game.players.clear();
         Game.playersDead.clear();
         Game.isGameInProgress = false;
+        Game.jumpsLeft.clear();
         Lobby.players.clear();
         Lobby.isLobbySetUp = false;
         WorldManager.unloadWorld();

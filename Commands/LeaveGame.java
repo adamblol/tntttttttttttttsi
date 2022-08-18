@@ -2,6 +2,7 @@ package adam.main.Commands;
 
 import adam.main.Game.Lobby;
 import adam.main.Main;
+import adam.main.ScoreBoard.LobbyScoreBoard;
 import adam.main.Tasks.LobbyCountDown;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -45,6 +46,7 @@ public class LeaveGame implements CommandExecutor {
             if(Lobby.players.size() < Main.plugin.getConfig().getInt("min-players") && !LobbyCountDown.task.isCancelled()) {
                 Lobby.players.forEach(player1 -> {
                     player1.sendMessage(ChatColor.RED + "Countdown Delayed due to not enough players");
+                    player1.setScoreboard(LobbyScoreBoard.openScoreBoard(Lobby.players.size()));
                 });
                 LobbyCountDown.task.cancel();
             }

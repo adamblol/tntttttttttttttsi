@@ -3,14 +3,11 @@ package adam.main;
 import adam.main.Commands.JoinGame;
 import adam.main.Commands.LeaveGame;
 import adam.main.Listeners.BlockBreakEvent;
+import adam.main.Listeners.PlayerInteract;
 import adam.main.Listeners.PlayerDamageEvent;
 import adam.main.Listeners.PlayerMoveEvent;
 import adam.main.World.WorldManager;
 import org.bukkit.plugin.java.JavaPlugin;
-
-/*
-only handles 1 game idk how to do multiple
- */
 
 public final class Main extends JavaPlugin {
 
@@ -36,6 +33,7 @@ public final class Main extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new PlayerMoveEvent(), this);
         getServer().getPluginManager().registerEvents(new BlockBreakEvent(), this);
         getServer().getPluginManager().registerEvents(new PlayerDamageEvent(), this);
+        getServer().getPluginManager().registerEvents(new PlayerInteract(), this);
 
     }
 

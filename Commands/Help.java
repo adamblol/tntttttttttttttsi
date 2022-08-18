@@ -18,7 +18,7 @@ public class Help implements CommandExecutor {
         }
 
         // send a help msg with the commands
-
+        player.sendMessage("---------------------------------");
 
 
 

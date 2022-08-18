@@ -1,6 +1,7 @@
 package adam.main.Commands;
 
 import adam.main.Game.Game;
+import adam.main.Game.GamePerks.DoubleJump;
 import adam.main.Game.Lobby;
 import adam.main.Main;
 import adam.main.ScoreBoard.LobbyScoreBoard;
@@ -25,6 +26,8 @@ public class JoinGame implements CommandExecutor {
         } else {
             return true;
         }
+
+//        DoubleJump.doDoubleJump(player, 5);
 
         // if player is already in the game
         if(Lobby.players.contains(player)) {

@@ -1,5 +1,6 @@
 package adam.main.ScoreBoard;
 
+import adam.main.Game.Game;
 import adam.main.Main;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -26,9 +27,11 @@ public class GameScoreBoard {
         Objective object = score.registerNewObjective(ChatColor.RED + "tnt_run_game", Criteria.AIR, ChatColor.RED + "Tnt Run");
         object.setDisplaySlot(DisplaySlot.SIDEBAR);
 
-        Score players = object.getScore(ChatColor.YELLOW + "Players: " + ChatColor.WHITE + "(" + playerSize + "/" + Main.plugin.getConfig().getInt("max-players") + ")");
-        Score status1 = object.getScore(ChatColor.YELLOW + "Alive Status: " + aliveStatus);
-        players.setScore(3);
+        Score players = object.getScore(ChatColor.YELLOW + "Players Alive: " + ChatColor.WHITE + playerSize);
+        Score jumpsLeft = object.getScore(ChatColor.YELLOW + "Jumps Left: " + ChatColor.WHITE + Game.jumpsLeft.get(player));
+        Score status1 = object.getScore(ChatColor.YELLOW + "Alive Status: " + ChatColor.WHITE + aliveStatus);
+        players.setScore(4);
+        jumpsLeft.setScore(3);
         status1.setScore(2);
 
         return score;
